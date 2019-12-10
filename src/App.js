@@ -19,6 +19,10 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
   const [currentVal, setCurrentVal] = useState(0);
+  const [storedVal, setStoredVal] = useState(null);
+  const [operator, setOperator] = useState(null);
+
+  console.log(operator);
 
   return (
     <div className="container">
@@ -26,8 +30,12 @@ function App() {
       <div className="App">
         <CalculatorGrid>
           <Display value={currentVal}></Display>
-          <Numbers setter={setCurrentVal}></Numbers>
-          <Operators></Operators>
+          <Numbers setCurrent={setCurrentVal}></Numbers>
+          <Operators
+            setStored={setStoredVal}
+            setOperator={setOperator}
+            currentVal={currentVal}
+          ></Operators>
           <Specials></Specials>
         </CalculatorGrid>
       </div>

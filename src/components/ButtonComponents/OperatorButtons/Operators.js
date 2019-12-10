@@ -7,12 +7,19 @@ const styles = {
   gridRow: "2 / 6"
 };
 
-export const Operators = () => {
-  // STEP 2 - add the imported data to state
+export const Operators = ({ setStored, setOperator, currentVal }) => {
   return (
     <div style={styles}>
       {operators.map(op => {
-        return <OperatorButton key={op.char} operator={op}></OperatorButton>;
+        return (
+          <OperatorButton
+            setStored={setStored}
+            setOperator={setOperator}
+            currentVal={currentVal}
+            key={op.char}
+            operator={op}
+          ></OperatorButton>
+        );
       })}
     </div>
   );
