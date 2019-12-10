@@ -1,21 +1,29 @@
 import React from "react";
 import { Button } from "../../Styles/StyledComponents";
+import { calculator } from "../../../utils";
 
 export const OperatorButton = ({
-  operator,
+  operatorDisplay,
   setStored,
   setOperator,
-  currentVal
+  setCurrent,
+  currentVal,
+  storedVal,
+  operator
 }) => {
   return (
     <Button
       operator="true"
       onClick={e => {
-        setStored(currentVal);
-        setOperator(operator.value);
+        if (e.target.textContent === "=") {
+          setCurrent(calculator(operator, currentVal, storedVal));
+        } else {
+          setStored(currentVal);
+          setOperator(operatorDisplay.value);
+        }
       }}
     >
-      {operator.char}
+      {operatorDisplay.char}
     </Button>
   );
 };

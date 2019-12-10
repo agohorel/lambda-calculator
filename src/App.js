@@ -32,7 +32,10 @@ function App() {
           <Operators
             setStored={setStoredVal}
             setOperator={setOperator}
+            setCurrent={setCurrentVal}
             currentVal={currentVal}
+            storedVal={storedVal}
+            operator={operator}
           ></Operators>
           <Specials></Specials>
         </CalculatorGrid>

@@ -7,7 +7,14 @@ const styles = {
   gridRow: "2 / 6"
 };
 
-export const Operators = ({ setStored, setOperator, currentVal }) => {
+export const Operators = ({
+  setStored,
+  setOperator,
+  setCurrent,
+  currentVal,
+  storedVal,
+  operator
+}) => {
   return (
     <div style={styles}>
       {operators.map(op => {
@@ -15,9 +22,12 @@ export const Operators = ({ setStored, setOperator, currentVal }) => {
           <OperatorButton
             setStored={setStored}
             setOperator={setOperator}
+            setCurrent={setCurrent}
             currentVal={currentVal}
+            storedVal={storedVal}
+            operator={operator}
             key={op.char}
-            operator={op}
+            operatorDisplay={op}
           ></OperatorButton>
         );
       })}
