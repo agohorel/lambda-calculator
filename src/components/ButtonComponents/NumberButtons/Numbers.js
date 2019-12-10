@@ -1,19 +1,18 @@
 import React from "react";
 import { numbers } from "../../../data";
 import { NumberButton } from "../NumberButtons/NumberButton";
-//import any components needed
-// example of import from data.js. Note all the ../   This is how we move through folders.
-/* 
-import { numbers } from '../../../data' 
-*/
-//Import your array data to from the provided data file
 
-export const Numbers = () => {
+const styles = {
+  gridColumn: "1 / 3",
+  gridRow: "3 / 6"
+};
+
+export const Numbers = ({ setter }) => {
   // STEP 2 - add the imported data to state
   return (
-    <div>
+    <div style={styles}>
       {numbers.map(number => {
-        return <NumberButton key={number} number={number}></NumberButton>;
+        return <NumberButton setter={setter} key={number} number={number}></NumberButton>;
       })}
     </div>
   );

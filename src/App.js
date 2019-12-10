@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
 import "./App.css";
 import { Numbers } from "../src/components/ButtonComponents/NumberButtons/Numbers";
 import { Operators } from "../src/components/ButtonComponents/OperatorButtons/Operators";
@@ -17,17 +18,28 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
+  const [currentVal, setCurrentVal] = useState(0);
+
   return (
     <div className="container">
       <Logo />
       <div className="App">
-        <Display></Display>
-        <Numbers></Numbers>
-        <Operators></Operators>
-        <Specials></Specials>
+        <CalculatorGrid>
+          <Display value={currentVal}></Display>
+          <Numbers setter={setCurrentVal}></Numbers>
+          <Operators></Operators>
+          <Specials></Specials>
+        </CalculatorGrid>
       </div>
     </div>
   );
 }
 
 export default App;
+
+const CalculatorGrid = styled.section`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  align-items: center;
+`;

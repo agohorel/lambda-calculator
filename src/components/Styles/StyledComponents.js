@@ -11,6 +11,7 @@ const Button = styled.button`
   font-size: 32px;
   color: white;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+  margin: 1rem;
 `;
 
 export { Button };
