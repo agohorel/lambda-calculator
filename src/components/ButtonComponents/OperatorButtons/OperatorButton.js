@@ -1,6 +1,6 @@
 import React from "react";
+import { Button } from "../../Styles/StyledComponents";
 
 export const OperatorButton = ({ operator }) => {
-  console.log(operator);
-  return <button>{operator.char}</button>;
+  return <Button operator>{operator.char}</Button>;
 };
