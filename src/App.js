@@ -37,7 +37,12 @@ function App() {
             storedVal={storedVal}
             operator={operator}
           ></Operators>
-          <Specials></Specials>
+          <Specials
+            currentVal={currentVal}
+            setCurrent={setCurrentVal}
+            storedVal={storedVal}
+            setStored={setStoredVal}
+          ></Specials>
         </CalculatorGrid>
       </div>
     </div>

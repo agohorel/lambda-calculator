@@ -7,13 +7,22 @@ const styles = {
   gridRow: "2 / 2"
 };
 
-export const Specials = () => {
+export const Specials = ({ currentVal, setCurrent, storedVal, setStored }) => {
   // STEP 2 - add the imported data to state
 
   return (
     <div style={styles}>
       {specials.map(special => {
-        return <SpecialButton key={special} special={special}></SpecialButton>;
+        return (
+          <SpecialButton
+            currentVal={currentVal}
+            setCurrent={setCurrent}
+            storedVal={storedVal}
+            setStored={setStored}
+            key={special}
+            special={special}
+          ></SpecialButton>
+        );
       })}
     </div>
   );
