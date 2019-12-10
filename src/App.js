@@ -22,8 +22,6 @@ function App() {
   const [storedVal, setStoredVal] = useState(null);
   const [operator, setOperator] = useState(null);
 
-  console.log(operator);
-
   return (
     <div className="container">
       <Logo />

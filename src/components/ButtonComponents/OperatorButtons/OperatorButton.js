@@ -12,7 +12,7 @@ export const OperatorButton = ({
       operator="true"
       onClick={e => {
         setStored(currentVal);
-        setOperator(e.target.textContent);
+        setOperator(operator.value);
       }}
     >
       {operator.char}
