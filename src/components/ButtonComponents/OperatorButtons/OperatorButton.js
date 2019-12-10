@@ -16,9 +16,10 @@ export const OperatorButton = ({
       operator="true"
       onClick={e => {
         if (e.target.textContent === "=") {
-          setCurrent(calculator(operator, currentVal, storedVal));
+          setCurrent(calculator(operator, storedVal, currentVal));
         } else {
           setStored(currentVal);
+          setCurrent(0);
           setOperator(operatorDisplay.value);
         }
       }}

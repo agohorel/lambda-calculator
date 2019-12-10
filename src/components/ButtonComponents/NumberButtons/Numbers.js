@@ -7,7 +7,7 @@ const styles = {
   gridRow: "3 / 6"
 };
 
-export const Numbers = ({ setCurrent }) => {
+export const Numbers = ({ setCurrent, currentVal }) => {
   // STEP 2 - add the imported data to state
   return (
     <div style={styles}>
@@ -15,6 +15,7 @@ export const Numbers = ({ setCurrent }) => {
         return (
           <NumberButton
             setCurrent={setCurrent}
+            currentVal={currentVal}
             key={number}
             number={number}
           ></NumberButton>
