@@ -1,17 +1,11 @@
 import React from "react";
+import styled from "styled-components";
 import { specials } from "../../../data";
 import { SpecialButton } from "./SpecialButton";
 
-const styles = {
-  gridColumn: "1 / 4",
-  gridRow: "2 / 2"
-};
-
 export const Specials = ({ currentVal, setCurrent, storedVal, setStored }) => {
-  // STEP 2 - add the imported data to state
-
   return (
-    <div style={styles}>
+    <SpecialsContainer>
       {specials.map(special => {
         return (
           <SpecialButton
@@ -24,6 +18,14 @@ export const Specials = ({ currentVal, setCurrent, storedVal, setStored }) => {
           ></SpecialButton>
         );
       })}
-    </div>
+    </SpecialsContainer>
   );
 };
+
+const SpecialsContainer = styled.div`
+  grid-column: 1 / 4;
+  grid-row: 2 / 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+`;

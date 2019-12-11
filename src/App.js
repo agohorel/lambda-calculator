@@ -54,6 +54,5 @@ export default App;
 const CalculatorGrid = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  align-items: center;
+  grid-template-rows: repeat(5, auto);
 `;

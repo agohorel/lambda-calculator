@@ -1,11 +1,7 @@
 import React from "react";
+import styled from "styled-components";
 import { operators } from "../../../data";
 import { OperatorButton } from "./OperatorButton";
-
-const styles = {
-  gridColumn: "3 / 4",
-  gridRow: "2 / 6"
-};
 
 export const Operators = ({
   setStored,
@@ -16,7 +12,7 @@ export const Operators = ({
   operator
 }) => {
   return (
-    <div style={styles}>
+    <OperatorsContainer>
       {operators.map(op => {
         return (
           <OperatorButton
@@ -31,6 +27,13 @@ export const Operators = ({
           ></OperatorButton>
         );
       })}
-    </div>
+    </OperatorsContainer>
   );
 };
+
+const OperatorsContainer = styled.div`
+  grid-column: 4 / 5;
+  grid-row: 2 / 6;
+  display: grid;
+  justify-items: center;
+`;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../../Styles/StyledComponents";
+import { Button } from "../../Button";
 
 export const SpecialButton = ({
   special,
