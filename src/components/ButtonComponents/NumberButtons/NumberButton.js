@@ -1,9 +1,13 @@
 import React from "react";
+import { Button } from "../../Button";
 
-const NumberButton = () => {
+export const NumberButton = ({ number, setCurrent, currentVal }) => {
   return (
-    <>
-      {/* Display a button element rendering the data being passed down from the parent container on props */}
-    </>
+    <Button
+      onClick={e => setCurrent(Number(`${currentVal}${e.target.textContent}`))}
+      number
+    >
+      {number}
+    </Button>
   );
 };

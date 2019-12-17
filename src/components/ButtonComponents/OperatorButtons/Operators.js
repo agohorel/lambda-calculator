@@ -1,16 +1,39 @@
 import React from "react";
+import styled from "styled-components";
+import { operators } from "../../../data";
+import { OperatorButton } from "./OperatorButton";
 
-//import any components needed
-
-//Import your array data to from the provided data file
-
-const Operators = () => {
-  // STEP 2 - add the imported data to state
+export const Operators = ({
+  setStored,
+  setOperator,
+  setCurrent,
+  currentVal,
+  storedVal,
+  operator
+}) => {
   return (
-    <div>
-      {/* STEP 3 - Use .map() to iterate over your array data and return a button
-       component matching the name on the provided file. Pass
-       it any props needed by the child component*/}
-    </div>
+    <OperatorsContainer>
+      {operators.map(op => {
+        return (
+          <OperatorButton
+            setStored={setStored}
+            setOperator={setOperator}
+            setCurrent={setCurrent}
+            currentVal={currentVal}
+            storedVal={storedVal}
+            operator={operator}
+            key={op.char}
+            operatorDisplay={op}
+          ></OperatorButton>
+        );
+      })}
+    </OperatorsContainer>
   );
 };
+
+const OperatorsContainer = styled.div`
+  grid-column: 4 / 5;
+  grid-row: 2 / 6;
+  display: grid;
+  justify-items: center;
+`;

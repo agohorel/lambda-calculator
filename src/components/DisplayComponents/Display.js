@@ -1,5 +1,13 @@
 import React from "react";
+import styled from "styled-components";
 
-const Display = () => {
-  return <div className="display">{/* Display any props data here */}</div>;
+export const Display = ({ value }) => {
+  return <DisplayContainer className="display">{value}</DisplayContainer>;
 };
+
+const DisplayContainer = styled.div`
+  grid-column: 2 / 4;
+  grid-row: 1 / 1;
+  justify-self: center;
+  margin-bottom: 2rem;
+`;

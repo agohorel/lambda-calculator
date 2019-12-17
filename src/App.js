@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
 import "./App.css";
+import { Numbers } from "../src/components/ButtonComponents/NumberButtons/Numbers";
+import { Operators } from "../src/components/ButtonComponents/OperatorButtons/Operators";
+import { Specials } from "../src/components/ButtonComponents/SpecialButtons/Specials";
+import { Display } from "../src/components/DisplayComponents/Display";
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
 
@@ -13,14 +18,41 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
+  const [currentVal, setCurrentVal] = useState([]);
+  const [storedVal, setStoredVal] = useState(null);
+  const [operator, setOperator] = useState(null);
+
   return (
     <div className="container">
       <Logo />
       <div className="App">
-        {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
+        <CalculatorGrid>
+          <Display value={currentVal}></Display>
+          <Numbers setCurrent={setCurrentVal} currentVal={currentVal}></Numbers>
+          <Operators
+            setStored={setStoredVal}
+            setOperator={setOperator}
+            setCurrent={setCurrentVal}
+            currentVal={currentVal}
+            storedVal={storedVal}
+            operator={operator}
+          ></Operators>
+          <Specials
+            currentVal={currentVal}
+            setCurrent={setCurrentVal}
+            storedVal={storedVal}
+            setStored={setStoredVal}
+          ></Specials>
+        </CalculatorGrid>
       </div>
     </div>
   );
 }
 
 export default App;
+
+const CalculatorGrid = styled.section`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, auto);
+`;

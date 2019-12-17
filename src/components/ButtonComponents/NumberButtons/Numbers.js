@@ -1,19 +1,35 @@
 import React from "react";
+import styled from "styled-components";
+import { numbers } from "../../../data";
+import { NumberButton } from "../NumberButtons/NumberButton";
 
-//import any components needed
-// example of import from data.js. Note all the ../   This is how we move through folders. 
-/* 
-import { numbers } from '../../../data' 
-*/
-//Import your array data to from the provided data file
-
-const Numbers = () => {
-  // STEP 2 - add the imported data to state
+export const Numbers = ({ setCurrent, currentVal }) => {
   return (
-    <div>
-      {/* STEP 3 - Use .map() to iterate over your array data and return a button
-       component matching the name on the provided file. Pass
-       it any props needed by the child component*/}
-    </div>
+    <NumbersContainer>
+      {numbers.map(number => {
+        return (
+          <NumberButton
+            setCurrent={setCurrent}
+            currentVal={currentVal}
+            key={number}
+            number={number}
+          ></NumberButton>
+        );
+      })}
+    </NumbersContainer>
   );
 };
+
+const NumbersContainer = styled.div`
+  grid-column: 1 / 4;
+  grid-row: 3 / 6;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+
+  & button:nth-of-type(10) {
+    width: 210px;
+    grid-column: 1 / 3;
+    border-radius: 40px;
+  }
+`;

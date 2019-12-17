@@ -1,17 +1,31 @@
 import React from "react";
+import styled from "styled-components";
+import { specials } from "../../../data";
+import { SpecialButton } from "./SpecialButton";
 
-//import any components needed
-
-//Import your array data to from the provided data file
-
-const Specials = () => {
-  // STEP 2 - add the imported data to state
-
+export const Specials = ({ currentVal, setCurrent, storedVal, setStored }) => {
   return (
-    <div>
-      {/* STEP 3 - Use .map() to iterate over your array data and return a button
-       component matching the name on the provided file. Pass
-       it any props needed by the child component*/}
-    </div>
+    <SpecialsContainer>
+      {specials.map(special => {
+        return (
+          <SpecialButton
+            currentVal={currentVal}
+            setCurrent={setCurrent}
+            storedVal={storedVal}
+            setStored={setStored}
+            key={special}
+            special={special}
+          ></SpecialButton>
+        );
+      })}
+    </SpecialsContainer>
   );
 };
+
+const SpecialsContainer = styled.div`
+  grid-column: 1 / 4;
+  grid-row: 2 / 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+`;
